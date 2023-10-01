@@ -56,7 +56,7 @@ export function limit(): MethodDecorator {
       limitOptions.count = count;
       if (count > REQ_LIMIT && timeAfterFirstCall < TIME_LIMIT) {
         return res
-          .status(403)
+          .status(429)
           .send(
             `"Rate Limited...". Time after first call ${
               timeAfterFirstCall / 1000
